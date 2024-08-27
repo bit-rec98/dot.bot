@@ -1,0 +1,10 @@
+<div class="chatbot-container">
+  <div class="chat-messages">
+    <app-chat-message
+      *ngFor="let message of messages"
+      [content]="message.content"
+      [isUser]="message.isUser"
+    ></app-chat-message>
+  </div>
+  <app-chat-input (sendMessage)="sendMessage($event)"></app-chat-input>
+</div>
