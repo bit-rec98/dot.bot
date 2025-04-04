@@ -19,34 +19,8 @@ interface ChatMessage {
     ChatMessageComponent,
     ChatInputComponent,
   ],
-  template: `
-    <div class="chatbot-container">
-      <div class="chat-messages">
-        <app-chat-message
-          *ngFor="let message of messages"
-          [content]="message.content"
-          [isUser]="message.isUser"
-        ></app-chat-message>
-      </div>
-      <app-chat-input (sendMessage)="sendMessage($event)"></app-chat-input>
-    </div>
-  `,
-  styles: [
-    `
-      .chatbot-container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        background-color: #1e1e1e;
-        color: #ffffff;
-      }
-      .chat-messages {
-        flex: 1;
-        overflow-y: auto;
-        padding: 1rem;
-      }
-    `,
-  ],
+  templateUrl: './chatbot.component.html',
+  styleUrl: './chatbot.component.scss',
 })
 export class ChatbotComponent implements OnInit {
   messages: ChatMessage[] = [];
@@ -55,7 +29,7 @@ export class ChatbotComponent implements OnInit {
 
   ngOnInit() {
     this.messages.push({
-      content: "Hello! I'm your Moondream assistant. How can I help you today?",
+      content: "Hello! I'm your Llama assistant. How can I help you today?",
       isUser: false,
     });
   }
@@ -70,6 +44,7 @@ export class ChatbotComponent implements OnInit {
 
     this.ollamaService.getChatResponse(chatHistory).subscribe(
       (response) => {
+        console.log(response);
         this.messages.push({ content: response, isUser: false });
       },
       (error) => {
