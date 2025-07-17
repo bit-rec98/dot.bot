@@ -1,0 +1,18 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+a {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #ffffff;
+  text-decoration: none;
+  color: #1e1e1e;
+}
